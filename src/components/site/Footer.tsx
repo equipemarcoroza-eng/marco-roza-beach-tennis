@@ -31,9 +31,9 @@ export function Footer() {
               href={waLink("Olá! Vim pelo site.")}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3 text-foreground/85 transition-smooth hover:text-primary"
+              className="flex items-center gap-3 text-foreground/85 transition-smooth hover:text-whatsapp"
             >
-              <MessageCircle className="h-4 w-4 text-accent" />
+              <MessageCircle className="h-4 w-4 text-whatsapp" />
               {PHONE_DISPLAY}
             </a>
             <a

@@ -69,7 +69,7 @@ export function Services() {
             <div className="relative mt-8 flex flex-wrap gap-4">
               <a
                 href="#cta"
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-accent-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-white hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-sm font-bold text-whatsapp-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-white hover:text-primary"
               >
                 Falar com a equipe
               </a>

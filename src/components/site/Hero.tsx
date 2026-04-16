@@ -48,7 +48,7 @@ export function Hero() {
               href={waLink("Olá Marco! Quero conhecer os treinamentos da equipe.")}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-elegant transition-smooth hover:scale-105 hover:bg-primary/90 sm:text-base"
+              className="group inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-4 text-sm font-semibold uppercase tracking-wider text-whatsapp-foreground shadow-elegant transition-smooth hover:scale-105 hover:bg-whatsapp/90 sm:text-base"
             >
               <MessageCircle className="h-5 w-5 transition-transform group-hover:rotate-12" />
               Falar no WhatsApp

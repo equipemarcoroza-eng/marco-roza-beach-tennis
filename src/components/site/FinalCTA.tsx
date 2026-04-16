@@ -31,7 +31,7 @@ export function FinalCTA() {
           href={waLink("Olá! Quero começar minha jornada com a Equipe Marco Roza.")}
           target="_blank"
           rel="noreferrer"
-          className="mt-10 inline-flex items-center gap-3 rounded-full bg-accent px-9 py-5 text-base font-bold uppercase tracking-wider text-accent-foreground shadow-glow transition-smooth hover:scale-105 hover:bg-accent/90 md:text-lg"
+          className="mt-10 inline-flex items-center gap-3 rounded-full bg-whatsapp px-9 py-5 text-base font-bold uppercase tracking-wider text-whatsapp-foreground shadow-glow transition-smooth hover:scale-105 hover:bg-whatsapp/90 md:text-lg"
         >
           <MessageCircle className="h-6 w-6" />
           Falar no WhatsApp agora

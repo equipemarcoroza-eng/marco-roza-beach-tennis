@@ -55,7 +55,7 @@ export function Navbar() {
             href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-primary/90"
+            className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2.5 text-sm font-semibold text-whatsapp-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-whatsapp/90"
           >
             <MessageCircle className="h-4 w-4" />
             Contato
@@ -88,7 +88,7 @@ export function Navbar() {
               href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
               target="_blank"
               rel="noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-sm font-semibold text-whatsapp-foreground"
             >
               <MessageCircle className="h-4 w-4" />
               Falar no WhatsApp
