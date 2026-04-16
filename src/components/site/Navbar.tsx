@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { BRAND, waLink } from "@/lib/contact";
+import logo from "@/assets/logo-marco-roza.png";
 
 const links = [
   { href: "#servicos", label: "Serviços" },
@@ -31,10 +32,10 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <a
           href="#top"
-          className="flex items-center gap-2 font-display text-base md:text-lg font-bold tracking-tight text-primary"
+          className="flex items-center gap-3 font-display text-base md:text-lg font-bold tracking-tight text-primary"
         >
-          <span className="inline-block h-2 w-2 rounded-full bg-accent" />
-          {BRAND}
+          <img src={logo} alt={BRAND} className="h-10 w-10 object-contain" />
+          <span className="hidden sm:inline">{BRAND}</span>
         </a>
 
         <nav className="hidden items-center gap-9 md:flex">
