@@ -1,34 +1,25 @@
 
 
-## Plano: Remover "Portal do Aluno" e ajustar verde do WhatsApp
+O usuário quer trocar a foto da primeira dobra (Hero) pela imagem da equipe que acabou de enviar (`user-uploads://hero-equipe.webp`).
 
-### 1. Remover botão "Portal do Aluno"
+Olhando o diff que veio na mensagem, vejo que o `Hero.tsx` já está importando `@/assets/hero-equipe.png` — ou seja, parece que uma versão anterior já tentou fazer essa troca, mas o arquivo `src/assets/hero-equipe.png` está vazio/binário inválido (o diff mostra `<binary>` mas o conteúdo anterior era apenas uma linha em branco). Preciso copiar a imagem real do upload para o projeto.
 
-**Navbar (`src/components/site/Navbar.tsx`)**
-- Remover o import órfão `LayoutDashboard` da linha 2 (já não há JSX usando ele no arquivo atual, mas o import ficou solto e gera warning de lint).
-- Verificar e, se houver renderização de botão/link "Portal do Aluno" na versão em execução, removê-la das versões desktop e mobile.
+## Plano: Trocar a foto da primeira dobra (Hero)
 
-**Footer (`src/components/site/Footer.tsx`)**
-- Verificar e remover qualquer link/botão "Portal do Aluno" (no current-code que vejo, ele não aparece — mas vou inspecionar de novo na hora de editar para garantir).
+### O que fazer
+1. Copiar `user-uploads://hero-equipe.webp` para `src/assets/hero-equipe.webp` (formato webp original, melhor compressão).
+2. Atualizar o import em `src/components/site/Hero.tsx`:
+   - De: `import heroImage from "@/assets/hero-equipe.png"`
+   - Para: `import heroImage from "@/assets/hero-equipe.webp"`
+3. Ajustar o atributo `alt` da `<img>` para refletir o novo conteúdo: "Equipe Marco Roza Beach Tennis com alunos em quadra" (mais fiel à foto enviada, que é uma foto de grupo).
+4. Ajustar `width`/`height` no JSX para a proporção da nova imagem (a foto enviada é landscape ~4:3, atualmente está como 1024×1280 portrait). Vou usar `1600×1200` para preservar a proporção real e evitar distorção do `object-cover`.
 
-### 2. Ajustar para o verde tradicional do WhatsApp
-
-Em `src/styles.css`, atualizar os tokens semânticos:
-
-```css
-/* WhatsApp green oficial #25D366 */
---whatsapp: oklch(0.74 0.19 148);
---whatsapp-foreground: oklch(0.99 0 0);
-```
-
-Como **todos** os botões de WhatsApp/Contato (Navbar, Hero, Services, About, FinalCTA, Footer) já usam as classes `bg-whatsapp` e `text-whatsapp-foreground`, a mudança nos tokens propaga automaticamente para todos eles — sem precisar editar componentes.
+### Considerações
+- A foto de grupo é horizontal e o container do Hero atualmente é mais vertical no desktop. O `object-cover` vai cortar parte da imagem — está OK porque o foco visual (rostos da equipe) está no centro/inferior, e o gradiente roxo no topo já cobre a parte superior do mural. Sem necessidade de reposicionamento.
+- Não preciso mexer em mais nenhum componente — só Hero usa essa foto.
+- A foto antiga `hero-coach.jpg` pode permanecer no projeto (não vai estourar build), mas como não é referenciada, fica como asset órfão. Sem ação necessária.
 
 ### Arquivos editados
-- `src/components/site/Navbar.tsx` — remover import órfão + botão se existir
-- `src/components/site/Footer.tsx` — remover botão Portal do Aluno se existir
-- `src/styles.css` — atualizar `--whatsapp` para o verde oficial #25D366
-
-### Verificação
-- Confirmar visualmente o verde mais vibrante nos botões da Navbar (desktop + mobile), Hero, Services, About, FinalCTA e ícone do Footer.
-- Confirmar que não restou nenhum link "Portal do Aluno" em lugar nenhum.
+- `src/assets/hero-equipe.webp` (novo, copiado do upload)
+- `src/components/site/Hero.tsx` (atualizar import + alt + dimensões)
 
