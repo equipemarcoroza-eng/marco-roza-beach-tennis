@@ -52,7 +52,7 @@ export function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
+            href={waLink()}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2.5 text-base font-semibold text-whatsapp-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-whatsapp/90"
@@ -85,7 +85,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
+              href={waLink()}
               target="_blank"
               rel="noreferrer"
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-base font-semibold text-whatsapp-foreground"

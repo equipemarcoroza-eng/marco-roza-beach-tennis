@@ -48,7 +48,7 @@ export function About() {
           </div>
 
           <a
-            href={waLink("Olá Marco! Quero conhecer melhor o seu trabalho.")}
+            href={waLink()}
             target="_blank"
             rel="noreferrer"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-sm font-semibold text-whatsapp-foreground shadow-card-soft transition-smooth hover:scale-105"
