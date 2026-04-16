@@ -1,5 +1,5 @@
 import { MessageCircle, Trophy, Users, Target, Award } from "lucide-react";
-import heroImage from "@/assets/hero-equipe.png";
+import heroImage from "@/assets/hero-equipe.webp";
 import { waLink } from "@/lib/contact";
 
 const bullets = [
@@ -67,9 +67,9 @@ export function Hero() {
           <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-elegant transition-smooth hover:shadow-glow">
             <img
               src={heroImage}
-              alt="Professor de beach tennis em ação"
-              width={1024}
-              height={1280}
+              alt="Equipe Marco Roza Beach Tennis com alunos em quadra"
+              width={1600}
+              height={1200}
               className="h-full w-full object-cover transition-smooth hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
