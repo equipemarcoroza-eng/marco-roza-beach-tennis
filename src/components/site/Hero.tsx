@@ -1,0 +1,92 @@
+import { MessageCircle, Trophy, Users, Target, Award } from "lucide-react";
+import heroImage from "@/assets/hero-coach.jpg";
+import { waLink } from "@/lib/contact";
+
+const bullets = [
+  { icon: Trophy, text: "Metodologia profissional comprovada em quadra" },
+  { icon: Users, text: "Aulas para iniciantes e atletas em evolução" },
+  { icon: Target, text: "Capacitação completa para futuros professores" },
+  { icon: Award, text: "Formação em arbitragem e organização de torneios" },
+];
+
+export function Hero() {
+  return (
+    <section
+      id="top"
+      className="relative overflow-hidden bg-gradient-hero pt-32 pb-20 md:pt-40 md:pb-28"
+    >
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:grid-cols-2 md:gap-16 md:px-8">
+        <div className="animate-fade-up">
+          <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+            Beach Tennis em Maringá
+          </span>
+
+          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] text-primary sm:text-5xl md:text-6xl">
+            Treinamento e Aperfeiçoamento com a{" "}
+            <span className="italic text-accent">Equipe Marco Roza</span>
+          </h1>
+
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Da primeira raquetada à formação como professor: uma jornada estruturada,
+            personalizada e conduzida com a autoridade de quem vive o Beach Tennis.
+          </p>
+
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            {bullets.map(({ icon: Icon, text }) => (
+              <li key={text} className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
+                </span>
+                <span className="text-sm font-medium text-foreground/85">{text}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href={waLink("Olá Marco! Quero conhecer os treinamentos da equipe.")}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-elegant transition-smooth hover:scale-105 hover:bg-primary/90 sm:text-base"
+            >
+              <MessageCircle className="h-5 w-5 transition-transform group-hover:rotate-12" />
+              Falar no WhatsApp
+            </a>
+            <a
+              href="#servicos"
+              className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
+            >
+              Ver áreas de atuação →
+            </a>
+          </div>
+        </div>
+
+        <div className="relative animate-fade-in">
+          <div className="absolute -inset-6 rounded-3xl bg-gradient-primary opacity-20 blur-3xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-elegant">
+            <img
+              src={heroImage}
+              alt="Professor de beach tennis em ação"
+              width={1024}
+              height={1280}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+          </div>
+          <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-border bg-background/95 p-4 shadow-card-soft backdrop-blur md:block">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/15 text-accent">
+                <Trophy className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-display text-lg font-bold leading-none text-primary">+10 anos</p>
+                <p className="text-xs text-muted-foreground">de experiência em quadra</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
