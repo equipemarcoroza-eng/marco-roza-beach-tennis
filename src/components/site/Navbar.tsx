@@ -52,14 +52,6 @@ export function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="#portal"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-secondary px-5 py-2.5 text-sm font-semibold text-primary transition-smooth hover:bg-secondary/80 hover:shadow-card-soft"
-          >
-            <LayoutDashboard className="h-4 w-4" />
-            Portal do Aluno
-          </a>
-
-          <a
             href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
             target="_blank"
             rel="noreferrer"
@@ -92,14 +84,6 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <a
-              href="#portal"
-              onClick={() => setOpen(false)}
-              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 bg-secondary px-5 py-3 text-sm font-semibold text-primary"
-            >
-              <LayoutDashboard className="h-4 w-4" />
-              Portal do Aluno
-            </a>
             <a
               href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
               target="_blank"

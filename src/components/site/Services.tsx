@@ -64,7 +64,7 @@ export function Services() {
             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-accent opacity-20 blur-[100px]" />
             <h3 className="relative font-display text-3xl font-bold leading-tight">Pronto para começar?</h3>
             <p className="relative mt-4 text-base text-primary-foreground/80">
-              Conte o seu objetivo e desenhamos o caminho ideal para você. Alunos ativos podem acessar o portal exclusivo.
+              Conte o seu objetivo e desenhamos o caminho ideal para você.
             </p>
             <div className="relative mt-8 flex flex-wrap gap-4">
               <a
@@ -72,12 +72,6 @@ export function Services() {
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-accent-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-white hover:text-primary"
               >
                 Falar com a equipe
-              </a>
-              <a
-                href="#portal"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-bold text-white backdrop-blur transition-smooth hover:bg-white/10"
-              >
-                Acessar Portal
               </a>
             </div>
           </div>
