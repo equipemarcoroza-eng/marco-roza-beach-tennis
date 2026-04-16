@@ -1,25 +1,34 @@
 
 
-O usuário quer trocar a foto da primeira dobra (Hero) pela imagem da equipe que acabou de enviar (`user-uploads://hero-equipe.webp`).
+O usuário quer que todos os botões de WhatsApp apontem para `https://wa.me/5544997731080` (sem mensagem pré-preenchida).
 
-Olhando o diff que veio na mensagem, vejo que o `Hero.tsx` já está importando `@/assets/hero-equipe.png` — ou seja, parece que uma versão anterior já tentou fazer essa troca, mas o arquivo `src/assets/hero-equipe.png` está vazio/binário inválido (o diff mostra `<binary>` mas o conteúdo anterior era apenas uma linha em branco). Preciso copiar a imagem real do upload para o projeto.
+Olhando `src/lib/contact.ts`:
+- `PHONE = "5544997731080"` ✅ já está correto
+- `waLink(msg)` gera `https://wa.me/5544997731080?text=...` — o número já bate, mas todos os botões anexam uma mensagem via query string `?text=`.
 
-## Plano: Trocar a foto da primeira dobra (Hero)
+A interpretação mais provável: o usuário quer o link **limpo** `https://wa.me/5544997731080`, sem o `?text=...`. Vou ajustar o helper para que, quando chamado sem mensagem (ou com string vazia), retorne só `https://wa.me/5544997731080`.
 
-### O que fazer
-1. Copiar `user-uploads://hero-equipe.webp` para `src/assets/hero-equipe.webp` (formato webp original, melhor compressão).
-2. Atualizar o import em `src/components/site/Hero.tsx`:
-   - De: `import heroImage from "@/assets/hero-equipe.png"`
-   - Para: `import heroImage from "@/assets/hero-equipe.webp"`
-3. Ajustar o atributo `alt` da `<img>` para refletir o novo conteúdo: "Equipe Marco Roza Beach Tennis com alunos em quadra" (mais fiel à foto enviada, que é uma foto de grupo).
-4. Ajustar `width`/`height` no JSX para a proporção da nova imagem (a foto enviada é landscape ~4:3, atualmente está como 1024×1280 portrait). Vou usar `1600×1200` para preservar a proporção real e evitar distorção do `object-cover`.
+## Plano: Link de WhatsApp limpo
 
-### Considerações
-- A foto de grupo é horizontal e o container do Hero atualmente é mais vertical no desktop. O `object-cover` vai cortar parte da imagem — está OK porque o foco visual (rostos da equipe) está no centro/inferior, e o gradiente roxo no topo já cobre a parte superior do mural. Sem necessidade de reposicionamento.
-- Não preciso mexer em mais nenhum componente — só Hero usa essa foto.
-- A foto antiga `hero-coach.jpg` pode permanecer no projeto (não vai estourar build), mas como não é referenciada, fica como asset órfão. Sem ação necessária.
+### Mudança
+Em `src/lib/contact.ts`, ajustar o helper `waLink`:
+
+```ts
+export const waLink = (msg?: string) =>
+  msg ? `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}` : `https://wa.me/${PHONE}`;
+```
+
+E nos componentes (Navbar, Hero, About, Services, FinalCTA, Footer), trocar todas as chamadas `waLink("Olá! ...")` por `waLink()` — assim o link gerado será exatamente `https://wa.me/5544997731080`.
 
 ### Arquivos editados
-- `src/assets/hero-equipe.webp` (novo, copiado do upload)
-- `src/components/site/Hero.tsx` (atualizar import + alt + dimensões)
+- `src/lib/contact.ts` — tornar `msg` opcional
+- `src/components/site/Navbar.tsx` — 2 chamadas (desktop + mobile)
+- `src/components/site/Hero.tsx` — 1 chamada
+- `src/components/site/About.tsx` — 1 chamada
+- `src/components/site/Services.tsx` — checar e ajustar todas as chamadas `waLink(...)`
+- `src/components/site/FinalCTA.tsx` — 1 chamada
+- `src/components/site/Footer.tsx` — 1 chamada
+
+### Observação
+Se a intenção era apenas trocar o **número** (e manter as mensagens pré-preenchidas), o número já está correto no `contact.ts` e nada precisa mudar. Mas como o pedido foi explícito por uma URL sem `?text=`, vou seguir com a versão limpa.
 
