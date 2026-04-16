@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MessageCircle, Menu, X, LayoutDashboard } from "lucide-react";
+import { MessageCircle, Menu, X } from "lucide-react";
 import { BRAND, waLink } from "@/lib/contact";
 import logo from "@/assets/logo-marco-roza.png";
 
