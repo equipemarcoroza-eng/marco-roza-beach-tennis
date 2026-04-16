@@ -1,5 +1,5 @@
 import { MessageCircle, Trophy, Users, Target, Award } from "lucide-react";
-import heroImage from "@/assets/hero-coach.jpg";
+import heroImage from "@/assets/hero-equipe.png";
 import { waLink } from "@/lib/contact";
 
 const bullets = [
