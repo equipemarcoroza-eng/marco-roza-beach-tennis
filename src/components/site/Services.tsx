@@ -35,34 +35,51 @@ export function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3 shadow-elegant">
           {services.map((s, i) => (
             <div
               key={s.title}
-              className="reveal group relative bg-card p-8 transition-smooth hover:bg-secondary"
+              className="reveal group relative bg-card p-8 transition-smooth hover:bg-secondary/50 hover:z-10"
               style={{ transitionDelay: `${i * 50}ms` }}
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border text-primary transition-smooth group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground">
-                <s.icon className="h-5.5 w-5.5" strokeWidth={1.5} />
+              <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,color-mix(in_oklab,var(--accent)_15%,transparent),transparent_70%)]" />
+              
+              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-border bg-background text-primary transition-all duration-500 group-hover:scale-110 group-hover:border-accent/50 group-hover:bg-accent group-hover:text-accent-foreground group-hover:shadow-glow">
+                <s.icon className="h-6 w-6 transition-transform duration-500 group-hover:rotate-[15deg]" strokeWidth={1.5} />
               </div>
-              <h3 className="mt-6 font-display text-xl font-semibold text-primary">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
-              <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-accent opacity-0 transition-smooth group-hover:opacity-100">
-                Saiba mais →
-              </span>
+              
+              <h3 className="relative mt-8 font-display text-xl font-bold tracking-tight text-primary transition-smooth group-hover:translate-x-1">
+                {s.title}
+              </h3>
+              <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground transition-smooth group-hover:text-foreground/80">
+                {s.text}
+              </p>
+              
+              <div className="relative mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent opacity-0 transition-all duration-500 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">
+                Saiba mais <span className="transition-transform duration-500 group-hover:translate-x-2">→</span>
+              </div>
             </div>
           ))}
-          <div className="hidden lg:block bg-gradient-dark p-8 text-primary-foreground">
-            <h3 className="font-display text-2xl font-bold">Pronto para começar?</h3>
-            <p className="mt-2 text-sm text-primary-foreground/75">
-              Conte o seu objetivo e desenhamos o caminho ideal para você.
+          <div className="reveal relative flex flex-col justify-center bg-gradient-dark p-10 text-primary-foreground overflow-hidden">
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-accent opacity-20 blur-[100px]" />
+            <h3 className="relative font-display text-3xl font-bold leading-tight">Pronto para começar?</h3>
+            <p className="relative mt-4 text-base text-primary-foreground/80">
+              Conte o seu objetivo e desenhamos o caminho ideal para você. Alunos ativos podem acessar o portal exclusivo.
             </p>
-            <a
-              href="#cta"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80"
-            >
-              Falar com a equipe →
-            </a>
+            <div className="relative mt-8 flex flex-wrap gap-4">
+              <a
+                href="#cta"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold text-accent-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-white hover:text-primary"
+              >
+                Falar com a equipe
+              </a>
+              <a
+                href="#portal"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-bold text-white backdrop-blur transition-smooth hover:bg-white/10"
+              >
+                Acessar Portal
+              </a>
+            </div>
           </div>
         </div>
       </div>

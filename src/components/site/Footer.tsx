@@ -45,6 +45,15 @@ export function Footer() {
               <Instagram className="h-4 w-4 text-accent" />
               {INSTAGRAM_HANDLE}
             </a>
+            <a
+              href="#portal"
+              className="flex items-center gap-3 text-foreground/85 transition-smooth hover:text-primary"
+            >
+              <div className="flex h-4 w-4 items-center justify-center rounded-sm bg-primary/10 text-primary">
+                <div className="h-2 w-2 rounded-full bg-primary" />
+              </div>
+              Portal do Aluno
+            </a>
           </div>
         </div>
 

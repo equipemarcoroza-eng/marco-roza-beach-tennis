@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MessageCircle, Menu, X } from "lucide-react";
+import { MessageCircle, Menu, X, LayoutDashboard } from "lucide-react";
 import { BRAND, waLink } from "@/lib/contact";
 import logo from "@/assets/logo-marco-roza.png";
 
@@ -25,7 +25,7 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-smooth ${
         scrolled
-          ? "bg-background/85 backdrop-blur-lg border-b border-border shadow-card-soft"
+          ? "bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-elegant"
           : "bg-transparent"
       }`}
     >
@@ -43,22 +43,32 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-foreground/75 transition-smooth hover:text-primary"
+              className="text-sm font-medium text-foreground/75 transition-smooth hover:text-primary hover:translate-y-[-1px]"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <a
-          href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
-          target="_blank"
-          rel="noreferrer"
-          className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-primary/90"
-        >
-          <MessageCircle className="h-4 w-4" />
-          Contato
-        </a>
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="#portal"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-secondary px-5 py-2.5 text-sm font-semibold text-primary transition-smooth hover:bg-secondary/80 hover:shadow-card-soft"
+          >
+            <LayoutDashboard className="h-4 w-4" />
+            Portal do Aluno
+          </a>
+
+          <a
+            href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-primary/90"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Contato
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen((v) => !v)}
@@ -82,6 +92,14 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
+            <a
+              href="#portal"
+              onClick={() => setOpen(false)}
+              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 bg-secondary px-5 py-3 text-sm font-semibold text-primary"
+            >
+              <LayoutDashboard className="h-4 w-4" />
+              Portal do Aluno
+            </a>
             <a
               href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
               target="_blank"
