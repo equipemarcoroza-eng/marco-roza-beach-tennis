@@ -28,7 +28,7 @@ export function FinalCTA() {
         </p>
 
         <a
-          href={waLink("Olá! Quero começar minha jornada com a Equipe Marco Roza.")}
+          href={waLink()}
           target="_blank"
           rel="noreferrer"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-whatsapp px-9 py-5 text-base font-bold uppercase tracking-wider text-whatsapp-foreground shadow-glow transition-smooth hover:scale-105 hover:bg-whatsapp/90 md:text-lg"

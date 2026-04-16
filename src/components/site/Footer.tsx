@@ -28,7 +28,7 @@ export function Footer() {
           </p>
           <div className="mt-4 space-y-3 text-sm">
             <a
-              href={waLink("Olá! Vim pelo site.")}
+              href={waLink()}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 text-foreground/85 transition-smooth hover:text-whatsapp"
