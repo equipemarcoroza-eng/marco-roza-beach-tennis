@@ -1,53 +1,34 @@
 
 
-## Plano: Rebrand com a paleta da logo
+## Plano: Remover "Portal do Aluno" e ajustar verde do WhatsApp
 
-A logo da Equipe Marco Roza usa **azul marinho** (anel) + **vermelho coral vibrante** (centro) + **branco**. Vou substituir totalmente a paleta atual (roxo + magenta) por uma identidade alinhada à logo, mantendo a estética minimalista e elegante.
+### 1. Remover botão "Portal do Aluno"
 
-### Nova paleta
+**Navbar (`src/components/site/Navbar.tsx`)**
+- Remover o import órfão `LayoutDashboard` da linha 2 (já não há JSX usando ele no arquivo atual, mas o import ficou solto e gera warning de lint).
+- Verificar e, se houver renderização de botão/link "Portal do Aluno" na versão em execução, removê-la das versões desktop e mobile.
 
-| Token | Cor | Uso |
-|---|---|---|
-| `--primary` | Navy `#1f2a73` (oklch ~0.32 0.14 270) | Títulos, botões CTA, navbar, links |
-| `--accent` | Coral/Vermelho `#e63946` (oklch ~0.62 0.22 25) | Acentos, ícones, badges, destaques |
-| `--background` | Off-white quente `#fafaf7` (oklch ~0.985 0.005 80) | Fundo geral |
-| `--foreground` | Navy escuro (oklch ~0.18 0.08 270) | Texto |
-| `--secondary` / `--muted` | Tons frios neutros derivados do navy | Cards, fundos sutis |
-| `--border` / `--ring` | Navy claro translúcido | Bordas e focus |
-| `--whatsapp` | Verde WhatsApp (mantém) | Botões WA |
+**Footer (`src/components/site/Footer.tsx`)**
+- Verificar e remover qualquer link/botão "Portal do Aluno" (no current-code que vejo, ele não aparece — mas vou inspecionar de novo na hora de editar para garantir).
 
-Gradientes (`--gradient-hero`, `--gradient-primary`, `--gradient-dark`) e sombras (`--shadow-elegant`, `--shadow-glow`) recalculados via `color-mix` — atualizam automaticamente porque referenciam `--primary` e `--accent`.
+### 2. Ajustar para o verde tradicional do WhatsApp
 
-### Arquivos a editar
+Em `src/styles.css`, atualizar os tokens semânticos:
 
-1. **`src/styles.css`** — substituir todas as variáveis OKLCH no bloco `:root` (primary, accent, background, foreground, secondary, muted, border, input, ring, chart-*). Único arquivo necessário para o rebrand global, pois todos os componentes usam tokens semânticos (`bg-primary`, `text-accent`, etc).
+```css
+/* WhatsApp green oficial #25D366 */
+--whatsapp: oklch(0.74 0.19 148);
+--whatsapp-foreground: oklch(0.99 0 0);
+```
 
-2. **`src/lib/contact.ts`** — sem mudanças.
+Como **todos** os botões de WhatsApp/Contato (Navbar, Hero, Services, About, FinalCTA, Footer) já usam as classes `bg-whatsapp` e `text-whatsapp-foreground`, a mudança nos tokens propaga automaticamente para todos eles — sem precisar editar componentes.
 
-3. **Componentes (`Hero`, `Navbar`, `Footer`, etc.)** — sem mudanças no código; herdam a nova paleta automaticamente via tokens.
+### Arquivos editados
+- `src/components/site/Navbar.tsx` — remover import órfão + botão se existir
+- `src/components/site/Footer.tsx` — remover botão Portal do Aluno se existir
+- `src/styles.css` — atualizar `--whatsapp` para o verde oficial #25D366
 
-4. **Logo na Navbar e Footer (bônus alinhado ao pedido "anexa a logo")**:
-   - Copiar `user-uploads://Logo_Equipe_Marco_Roza.png` → `src/assets/logo-marco-roza.png`
-   - **Navbar**: substituir o ponto colorido + texto por `<img>` da logo (h-10) + texto da marca ao lado
-   - **Footer**: adicionar a logo (h-12) acima do nome da marca na coluna 1
-   - Atualizar `<link rel="icon">` em `__root.tsx` para usar a logo como favicon (`/logo-marco-roza.png` na pasta `public`)
+### Verificação
+- Confirmar visualmente o verde mais vibrante nos botões da Navbar (desktop + mobile), Hero, Services, About, FinalCTA e ícone do Footer.
+- Confirmar que não restou nenhum link "Portal do Aluno" em lugar nenhum.
 
-5. **`src/routes/__root.tsx`** — atualizar favicon para a logo.
-
-### Considerações de design
-
-- O navy é uma cor mais "séria/profissional" que o roxo — combina com o tom de autoridade pedido na brief original.
-- O coral mantém a energia ousada do magenta anterior, mas agora 100% fiel à logo.
-- Contraste WCAG AA garantido: navy primary sobre cream e cream sobre navy.
-- Gradientes hero ganham um leve glow coral no topo direito + glow navy no canto inferior — mantém o visual sofisticado.
-
-### Verificação pós-implementação
-
-- Rodar `bun run build` para garantir que nada quebrou.
-- Inspecionar visualmente: Hero, botões CTA, badges, cards de problemas, timeline do processo, FAQ, footer.
-
-<lov-actions>
-<lov-suggestion message="Aprovado, aplique o rebrand com a nova paleta da logo e adicione a logo na navbar e no footer.">Aplicar rebrand</lov-suggestion>
-<lov-suggestion message="Aplique apenas a paleta de cores nos tokens, sem mexer na navbar/footer ainda. Quero ver o impacto isolado primeiro.">Só trocar as cores</lov-suggestion>
-<lov-suggestion message="Antes de aplicar, me mostre 2 variações de paleta: uma com navy mais escuro e outra com coral mais alaranjado, para eu escolher.">Ver variações de paleta</lov-suggestion>
-</lov-actions>
