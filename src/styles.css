@@ -89,8 +89,8 @@
   --input: oklch(0.92 0.015 270);
   --ring: oklch(0.32 0.14 270);
 
-  /* WhatsApp green */
-  --whatsapp: oklch(0.62 0.16 145);
+  /* WhatsApp green oficial #25D366 */
+  --whatsapp: oklch(0.74 0.19 148);
   --whatsapp-foreground: oklch(0.99 0 0);
 
   --chart-1: oklch(0.32 0.14 270);
