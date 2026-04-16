@@ -43,7 +43,7 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-foreground/75 transition-smooth hover:text-primary hover:translate-y-[-1px]"
+              className="text-base font-medium text-foreground/75 transition-smooth hover:text-primary hover:translate-y-[-1px]"
             >
               {l.label}
             </a>
@@ -55,7 +55,7 @@ export function Navbar() {
             href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2.5 text-sm font-semibold text-whatsapp-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-whatsapp/90"
+            className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2.5 text-base font-semibold text-whatsapp-foreground shadow-card-soft transition-smooth hover:scale-105 hover:bg-whatsapp/90"
           >
             <MessageCircle className="h-4 w-4" />
             Contato
@@ -79,7 +79,7 @@ export function Navbar() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm font-medium text-foreground/80 hover:bg-secondary"
+                className="rounded-md px-3 py-3 text-base font-medium text-foreground/80 hover:bg-secondary"
               >
                 {l.label}
               </a>
@@ -88,7 +88,7 @@ export function Navbar() {
               href={waLink("Olá! Gostaria de saber mais sobre os treinamentos.")}
               target="_blank"
               rel="noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-sm font-semibold text-whatsapp-foreground"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-base font-semibold text-whatsapp-foreground"
             >
               <MessageCircle className="h-4 w-4" />
               Falar no WhatsApp
