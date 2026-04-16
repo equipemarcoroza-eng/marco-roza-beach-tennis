@@ -21,18 +21,26 @@ export function Process() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-4 md:gap-4">
+        <div className="mt-16 grid gap-8 md:grid-cols-4 md:gap-4 relative">
+          {/* Connecting Line (Desktop) */}
+          <div className="absolute top-1/2 left-0 hidden h-0.5 w-full -translate-y-1/2 bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0 md:block" />
+          
           {steps.map((s, i) => (
-            <div key={s.n} className="reveal relative" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-7 backdrop-blur-sm transition-smooth hover:border-accent/50 hover:bg-primary-foreground/10">
+            <div key={s.n} className="reveal relative group" style={{ transitionDelay: `${i * 100}ms` }}>
+              <div className="relative z-10 rounded-3xl border border-primary-foreground/10 bg-primary-foreground/5 p-8 backdrop-blur-md transition-all duration-500 hover:border-accent/50 hover:bg-primary-foreground/10 hover:shadow-glow-accent hover:-translate-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-5xl font-bold text-accent">{s.n}</span>
-                  {i < steps.length - 1 && (
-                    <span className="hidden md:block h-px w-12 bg-primary-foreground/20" />
-                  )}
+                  <span className="font-display text-6xl font-black text-accent/20 transition-all duration-500 group-hover:text-accent group-hover:scale-110">{s.n}</span>
+                  <div className="h-10 w-10 rounded-full bg-accent/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+                  </div>
                 </div>
-                <h3 className="mt-6 font-display text-xl font-semibold">{s.title}</h3>
-                <p className="mt-2 text-sm text-primary-foreground/70">{s.text}</p>
+                <h3 className="mt-8 font-display text-2xl font-bold tracking-tight">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-primary-foreground/60 group-hover:text-primary-foreground/90 transition-colors">
+                  {s.text}
+                </p>
+                
+                {/* Decorative glow corner */}
+                <div className="absolute -bottom-2 -right-2 h-12 w-12 rounded-full bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
           ))}

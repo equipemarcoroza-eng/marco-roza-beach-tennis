@@ -150,8 +150,27 @@
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
+  .shadow-glow-accent {
+    box-shadow: 0 0 40px -5px color-mix(in oklab, var(--accent) 50%, transparent);
+  }
   .transition-smooth {
     transition: var(--transition-smooth);
+  }
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
   }
 }
 

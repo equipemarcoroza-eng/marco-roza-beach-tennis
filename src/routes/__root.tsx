@@ -68,6 +68,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { ScrollProgress } from "@/components/site/ScrollProgress";
+
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <>
+      <ScrollProgress />
+      <Outlet />
+    </>
+  );
 }
