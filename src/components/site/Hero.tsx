@@ -24,7 +24,7 @@ export function Hero() {
 
           <h1 className="animate-fade-up mt-6 font-display text-4xl font-bold leading-[1.05] text-primary sm:text-5xl md:text-6xl" style={{ animationDelay: "200ms" }}>
             Treinamento e Aperfeiçoamento com a{" "}
-            <span className="italic text-accent">Equipe Marco Roza</span>
+            <span className="text-accent">Equipe Marco Roza</span>
           </h1>
 
           <p className="animate-fade-up mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg" style={{ animationDelay: "300ms" }}>
