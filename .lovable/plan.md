@@ -1,11 +1,14 @@
 
 
-Trocar a foto da seção Sobre (`src/components/site/About.tsx`) pela imagem `user-uploads://Marco_Roza.jpg`.
+Trocar a foto do Hero (`src/components/site/Hero.tsx`) pela imagem `user-uploads://EMR_Capa_NovaJPG.JPG`.
+
+O Hero hoje importa `heroImage from "@/assets/hero-equipe.webp"`. Vou substituir o asset por um novo arquivo (mantendo extensão `.jpg` que bate com o upload) e atualizar o import.
 
 ### Passos
-1. Copiar `user-uploads://Marco_Roza.jpg` para `src/assets/about-marco.jpg` (sobrescreve o asset atual já referenciado pelo componente — sem precisar mexer no import).
-2. Não há mudança de código necessária: `About.tsx` já importa `aboutImg from "@/assets/about-marco.jpg"`.
+1. Copiar `user-uploads://EMR_Capa_NovaJPG.JPG` para `src/assets/hero-equipe.jpg`.
+2. Em `src/components/site/Hero.tsx`, atualizar o import de `@/assets/hero-equipe.webp` para `@/assets/hero-equipe.jpg`.
 
-### Arquivo editado
-- `src/assets/about-marco.jpg` (substituído pelo upload)
+### Arquivos editados
+- `src/assets/hero-equipe.jpg` (novo)
+- `src/components/site/Hero.tsx` (1 linha de import)
 
