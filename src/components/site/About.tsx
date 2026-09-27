@@ -29,7 +29,7 @@ export function About() {
             Sobre
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold text-primary md:text-5xl">
-            Quem está por trás da equipe
+            Quem é Marco Roza
           </h2>
           <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
             <p>
