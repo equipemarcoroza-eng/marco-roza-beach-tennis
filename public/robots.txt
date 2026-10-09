@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marcoroza.com.br/sitemap.xml
