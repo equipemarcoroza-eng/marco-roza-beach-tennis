@@ -26,15 +26,15 @@ const pillars = [
 
 export function ValueProp() {
   return (
-    <section id="metodologia" className="scroll-mt-20 bg-[#090c16] py-24 md:py-36 lg:py-44">
+    <section id="metodologia" className="scroll-mt-20 bg-[#F6F4EE] py-24 text-[#090C16] md:py-36 lg:py-44">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         
         {/* Cabeçalho */}
         <div className="reveal max-w-2xl">
-          <p className="eyebrow text-accent font-semibold">Pilares da Metodologia</p>
-          <h2 className="mt-4 font-display text-[38px] leading-[1.1] text-white sm:text-5xl lg:text-[62px]">
+          <p className="eyebrow text-[#b2791d] font-semibold">Pilares da Metodologia</p>
+          <h2 className="mt-4 font-display text-[38px] leading-[1.1] text-[#090C16] sm:text-5xl lg:text-[62px]">
             Três compromissos em{" "}
-            <em className="text-gold-gradient font-serif italic pr-2 font-normal">
+            <em className="font-serif italic text-[#b2791d] pr-2 font-normal">
               cada
             </em>{" "}
             treino.
@@ -50,25 +50,25 @@ export function ValueProp() {
               style={{ top: `${110 + idx * 28}px` }}
             >
               <div className="reveal">
-                <article className="group grid gap-8 rounded-3xl border border-white/10 bg-[#121727] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.7)] transition-all duration-500 hover:border-accent/60 md:grid-cols-[180px_1fr] md:p-14 lg:min-h-[320px]">
+                <article className="group grid gap-8 rounded-3xl border border-[#090C16]/10 bg-white p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-[#b2791d]/60 md:grid-cols-[180px_1fr] md:p-14 lg:min-h-[320px]">
                   
                   {/* Número Monumental Dourado */}
-                  <span className="font-display text-accent text-[80px] leading-none md:text-[130px] font-bold opacity-80 group-hover:opacity-100 transition-opacity">
+                  <span className="font-display text-[#b2791d] text-[80px] leading-none md:text-[130px] font-bold opacity-85 group-hover:opacity-100 transition-opacity">
                     {p.num}
                   </span>
 
                   {/* Conteúdo do Card */}
                   <div className="md:pt-3">
                     <div className="flex items-center gap-3">
-                      <p.icon className="h-6 w-6 text-accent" strokeWidth={1.5} />
-                      <p className="eyebrow text-[10px] text-accent/90">{p.subtitle}</p>
+                      <p.icon className="h-6 w-6 text-[#b2791d]" strokeWidth={1.5} />
+                      <p className="eyebrow text-[10px] text-[#b2791d] font-semibold">{p.subtitle}</p>
                     </div>
 
-                    <h3 className="mt-4 font-display text-3xl font-bold text-white md:text-4xl">
+                    <h3 className="mt-4 font-display text-3xl font-bold text-[#090C16] md:text-4xl">
                       {p.title}
                     </h3>
 
-                    <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+                    <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#40485d] md:text-lg">
                       {p.text}
                     </p>
                   </div>

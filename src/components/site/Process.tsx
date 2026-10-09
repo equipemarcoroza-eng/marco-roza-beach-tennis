@@ -30,21 +30,21 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="processo" className="scroll-mt-20 relative bg-[#090c16] py-24 text-white md:py-36 lg:py-44">
+    <section id="processo" className="scroll-mt-20 relative bg-[#FAF8F5] py-24 text-[#090C16] md:py-36 lg:py-44">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         
         {/* Cabeçalho */}
         <div className="reveal mx-auto max-w-2xl text-center">
-          <span className="eyebrow text-accent font-semibold">
+          <span className="eyebrow text-[#b2791d] font-semibold">
             Passo a Passo
           </span>
-          <h2 className="mt-4 font-display text-[38px] leading-[1.1] sm:text-5xl lg:text-[60px]">
+          <h2 className="mt-4 font-display text-[38px] leading-[1.1] text-[#090C16] sm:text-5xl lg:text-[60px]">
             Como iniciar sua{" "}
-            <em className="text-gold-gradient font-serif italic pr-2 font-normal">
+            <em className="font-serif italic text-[#b2791d] pr-2 font-normal">
               jornada.
             </em>
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-white/65 md:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-[#40485d] md:text-base">
             Um processo direto, transparente e sem burocracia do primeiro contato à quadra.
           </p>
         </div>
@@ -54,33 +54,30 @@ export function Process() {
           {steps.map((s, idx) => (
             <div
               key={s.n}
-              className="reveal group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-[#121727]/80 p-8 backdrop-blur-md transition-all duration-500 hover:border-accent/60 hover:bg-[#161d33] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+              className="reveal group relative flex flex-col justify-between rounded-3xl border border-[#090C16]/10 bg-white p-8 shadow-[0_15px_35px_rgba(0,0,0,0.05)] transition-all duration-500 hover:border-[#b2791d]/60 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(0,0,0,0.1)]"
               style={{ transitionDelay: `${idx * 80}ms` }}
             >
-              {/* Efeito de luz suave */}
-              <div className="absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(229,167,59,0.1),transparent_70%)] pointer-events-none" />
-
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-5xl font-bold text-accent/30 transition-colors duration-500 group-hover:text-accent">
+                  <span className="font-display text-5xl font-bold text-[#b2791d]/40 transition-colors duration-500 group-hover:text-[#b2791d]">
                     {s.n}
                   </span>
-                  <span className="eyebrow rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[8px] text-white/70">
+                  <span className="eyebrow rounded-full border border-[#090C16]/10 bg-[#090C16]/5 px-2.5 py-1 text-[8px] text-[#40485d]">
                     {s.tag}
                   </span>
                 </div>
 
-                <h3 className="mt-6 font-display text-2xl font-bold tracking-tight text-white transition-colors group-hover:text-accent">
+                <h3 className="mt-6 font-display text-2xl font-bold tracking-tight text-[#090C16] transition-colors group-hover:text-[#b2791d]">
                   {s.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-relaxed text-white/65 transition-colors group-hover:text-white/85">
+                <p className="mt-3 text-sm leading-relaxed text-[#40485d] transition-colors group-hover:text-[#090C16]">
                   {s.text}
                 </p>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-white/10">
-                <span className="text-[11px] eyebrow text-accent/80 font-medium">
+              <div className="mt-8 pt-4 border-t border-[#090C16]/10">
+                <span className="text-[11px] eyebrow text-[#b2791d] font-semibold">
                   Etapa {s.n} de 04
                 </span>
               </div>
@@ -94,7 +91,7 @@ export function Process() {
             href={waLink("Olá, Marco! Gostaria de dar o primeiro passo e saber os próximos horários disponíveis.")}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-full bg-accent px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-glow transition-all duration-300 hover:scale-105 hover:bg-white"
+            className="inline-flex items-center gap-2.5 rounded-full bg-[#090C16] px-8 py-4.5 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-[#b2791d] hover:text-black"
           >
             <MessageCircle className="h-4 w-4" />
             <span>Falar no WhatsApp Agora</span>
