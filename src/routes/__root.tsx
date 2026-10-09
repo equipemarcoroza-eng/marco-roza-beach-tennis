@@ -25,22 +25,13 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Professional landing page for Marco Roza Beach Tennis, showcasing training and services." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Professional landing page for Marco Roza Beach Tennis, showcasing training and services." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Professional landing page for Marco Roza Beach Tennis, showcasing training and services." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c3f66089-79ac-486c-a813-d5f193573a32/id-preview-9a046fb6--93f77427-9e23-4dce-92ba-19ca26ba959b.lovable.app-1776386875401.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c3f66089-79ac-486c-a813-d5f193573a32/id-preview-9a046fb6--93f77427-9e23-4dce-92ba-19ca26ba959b.lovable.app-1776386875401.png" },
+      { property: "og:site_name", content: "Equipe Marco Roza Beach Tennis" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

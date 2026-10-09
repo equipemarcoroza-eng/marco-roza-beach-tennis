@@ -13,8 +13,10 @@ import { FAQ } from "@/components/site/FAQ";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
 import { useReveal } from "@/hooks/use-reveal";
+import { BRAND, PHONE, INSTAGRAM } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   component: Index,
   head: () => ({
     meta: [
@@ -35,7 +37,32 @@ export const Route = createFileRoute("/")({
         content:
           "Aulas, formação profissional de treinadores e ecossistema com dados em Maringá. Da iniciação ao alto rendimento.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://marcoroza.com.br/" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Equipe Marco Roza Beach Tennis | Treinamento em Maringá" },
+      { name: "twitter:description", content: "Aulas de Beach Tennis, capacitação de professores, clínicas e torneios em Maringá com a Equipe Marco Roza." },
     ],
+    links: [{ rel: "canonical", href: "https://marcoroza.com.br/" }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://marcoroza.com.br/#equipe",
+        name: BRAND,
+        url: "https://marcoroza.com.br/",
+        telephone: `+${PHONE}`,
+        sameAs: [INSTAGRAM],
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Av. Nóbrega 62, Centro",
+          addressLocality: "Maringá",
+          addressRegion: "PR",
+          addressCountry: "BR",
+        },
+      }),
+    }],
   }),
 });
 
