@@ -1,50 +1,106 @@
+import { MessageCircle, ArrowRight } from "lucide-react";
+import { waLink } from "@/lib/contact";
+
 const steps = [
-  { n: "01", title: "Contato", text: "Você fala conosco pelo WhatsApp e conta seu objetivo." },
-  { n: "02", title: "Diagnóstico", text: "Avaliamos seu nível, disponibilidade e expectativas." },
-  { n: "03", title: "Plano", text: "Montamos um plano personalizado de treinos ou formação." },
-  { n: "04", title: "Execução", text: "Começamos a jornada com acompanhamento constante." },
+  {
+    n: "01",
+    title: "Primeiro Contato",
+    tag: "WhatsApp Oficial",
+    text: "Você conversa diretamente conosco para contar seu momento: se quer começar do zero, destravar seu jogo ou se profissionalizar.",
+  },
+  {
+    n: "02",
+    title: "Diagnóstico Técnico",
+    tag: "Avaliação Personalizada",
+    text: "Entendemos sua disponibilidade de agenda, objetivos atléticos ou profissionais e alinhamos a turma ou mentoria sob medida.",
+  },
+  {
+    n: "03",
+    title: "Plano & Cronograma",
+    tag: "Metodologia Marco Roza",
+    text: "Você recebe o direcionamento claro dos treinos, fundamentos que serão trabalhados e a estrutura pedagógica das aulas.",
+  },
+  {
+    n: "04",
+    title: "Evolução Contínua",
+    tag: "Acompanhamento Real",
+    text: "Início dos treinos com presença, reposição inteligente e feedbacks técnicos contínuos para garantir que você atinja seu auge.",
+  },
 ];
 
 export function Process() {
   return (
-    <section id="processo" className="relative bg-gradient-dark py-24 text-primary-foreground md:py-32">
+    <section id="processo" className="scroll-mt-20 relative bg-[#090c16] py-24 text-white md:py-36 lg:py-44">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
+        
+        {/* Cabeçalho */}
         <div className="reveal mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-            Como funciona
+          <span className="eyebrow text-accent font-semibold">
+            Passo a Passo
           </span>
-          <h2 className="mt-4 font-display text-3xl font-bold md:text-5xl">
-            Sua jornada em 4 passos simples
+          <h2 className="mt-4 font-display text-[38px] leading-[1.1] sm:text-5xl lg:text-[60px]">
+            Como iniciar sua{" "}
+            <em className="text-gold-gradient font-serif italic pr-2 font-normal">
+              jornada.
+            </em>
           </h2>
-          <p className="mt-4 text-primary-foreground/70">
-            Um processo claro e direto, do primeiro contato até a sua evolução em quadra.
+          <p className="mt-4 text-sm leading-relaxed text-white/65 md:text-base">
+            Um processo direto, transparente e sem burocracia do primeiro contato à quadra.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-4 md:gap-4 relative">
-          {/* Connecting Line (Desktop) */}
-          <div className="absolute top-1/2 left-0 hidden h-0.5 w-full -translate-y-1/2 bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0 md:block" />
-          
-          {steps.map((s, i) => (
-            <div key={s.n} className="reveal relative group" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="relative z-10 rounded-3xl border border-primary-foreground/10 bg-primary-foreground/5 p-8 backdrop-blur-md transition-all duration-500 hover:border-accent/50 hover:bg-primary-foreground/10 hover:shadow-glow-accent hover:-translate-y-2">
+        {/* Timeline dos 4 Passos */}
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative">
+          {steps.map((s, idx) => (
+            <div
+              key={s.n}
+              className="reveal group relative flex flex-col justify-between rounded-3xl border border-white/10 bg-[#121727]/80 p-8 backdrop-blur-md transition-all duration-500 hover:border-accent/60 hover:bg-[#161d33] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+              style={{ transitionDelay: `${idx * 80}ms` }}
+            >
+              {/* Efeito de luz suave */}
+              <div className="absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(ellipse_at_top,rgba(229,167,59,0.1),transparent_70%)] pointer-events-none" />
+
+              <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-6xl font-black text-accent/20 transition-all duration-500 group-hover:text-accent group-hover:scale-110">{s.n}</span>
-                  <div className="h-10 w-10 rounded-full bg-accent/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-                  </div>
+                  <span className="font-display text-5xl font-bold text-accent/30 transition-colors duration-500 group-hover:text-accent">
+                    {s.n}
+                  </span>
+                  <span className="eyebrow rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[8px] text-white/70">
+                    {s.tag}
+                  </span>
                 </div>
-                <h3 className="mt-8 font-display text-2xl font-bold tracking-tight">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-primary-foreground/60 group-hover:text-primary-foreground/90 transition-colors">
+
+                <h3 className="mt-6 font-display text-2xl font-bold tracking-tight text-white transition-colors group-hover:text-accent">
+                  {s.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-relaxed text-white/65 transition-colors group-hover:text-white/85">
                   {s.text}
                 </p>
-                
-                {/* Decorative glow corner */}
-                <div className="absolute -bottom-2 -right-2 h-12 w-12 rounded-full bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+
+              <div className="mt-8 pt-4 border-t border-white/10">
+                <span className="text-[11px] eyebrow text-accent/80 font-medium">
+                  Etapa {s.n} de 04
+                </span>
               </div>
             </div>
           ))}
         </div>
+
+        {/* CTA Intermediário */}
+        <div className="reveal mt-16 text-center">
+          <a
+            href={waLink("Olá, Marco! Gostaria de dar o primeiro passo e saber os próximos horários disponíveis.")}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2.5 rounded-full bg-accent px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-glow transition-all duration-300 hover:scale-105 hover:bg-white"
+          >
+            <MessageCircle className="h-4 w-4" />
+            <span>Falar no WhatsApp Agora</span>
+          </a>
+        </div>
+
       </div>
     </section>
   );

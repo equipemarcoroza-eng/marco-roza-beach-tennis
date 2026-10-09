@@ -1,91 +1,112 @@
-import { MessageCircle, Trophy, Users, Target, Award } from "lucide-react";
+import { MessageCircle, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-equipe.jpg";
 import { waLink } from "@/lib/contact";
-
-const bullets = [
-  { icon: Trophy, text: "Metodologia profissional comprovada em quadra" },
-  { icon: Users, text: "Aulas para iniciantes e atletas em evolução" },
-  { icon: Target, text: "Capacitação completa para futuros professores" },
-  { icon: Award, text: "Formação em arbitragem e organização de torneios" },
-];
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-gradient-hero pt-32 pb-20 md:pt-40 md:pb-28"
+      className="relative flex min-h-[100svh] items-end overflow-hidden bg-[#090c16] md:items-center"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:grid-cols-2 md:gap-16 md:px-8">
-        <div>
-          <span className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent" style={{ animationDelay: "100ms" }}>
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            Beach Tennis em Maringá
-          </span>
+      {/* Background Image com Efeito Cinematográfico */}
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src={heroImage}
+          alt="Treinamento de Beach Tennis com a Equipe Marco Roza em Maringá"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
+          className="h-full w-full object-cover object-[65%_25%] md:object-[70%_30%] scale-105 transition-transform duration-1000 ease-out"
+        />
+        {/* Camadas de Gradientes e Vinheta Profunda */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#090c16] via-[#090c16]/75 to-[#090c16]/30 md:bg-gradient-to-r md:from-[#090c16]/98 md:via-[#090c16]/75 md:to-transparent" />
+        <div className="absolute inset-0 shadow-[inset_0_0_140px_rgba(0,0,0,0.85)]" />
+      </div>
 
-          <h1 className="animate-fade-up mt-6 font-display text-4xl font-bold leading-[1.05] text-primary sm:text-5xl md:text-6xl" style={{ animationDelay: "200ms" }}>
-            Treinamento e Aperfeiçoamento com a{" "}
-            <span className="text-accent">Equipe Marco Roza</span>
+      {/* Conteúdo Central */}
+      <div className="mx-auto w-full max-w-7xl px-5 pb-32 pt-36 md:px-8 md:pb-40 md:pt-44 relative z-10">
+        <div className="max-w-[820px]">
+          {/* Eyebrow com status pulsante */}
+          <div className="reveal inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs eyebrow text-accent shadow-sm">
+            <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+            <span>Equipe Marco Roza · Maringá · PR</span>
+          </div>
+
+          {/* Headline com Máscara e Tipografia Editorial */}
+          <h1 className="mt-6 font-display text-[42px] leading-[1.08] text-white sm:text-6xl lg:text-[76px] 2xl:text-[88px] tracking-tight">
+            <span className="block overflow-hidden pb-[0.04em]">
+              <span>Quando cada ponto</span>
+            </span>
+            <span className="block overflow-hidden pb-[0.04em]">
+              <span>exige precisão, o método</span>
+            </span>
+            <span className="block overflow-hidden pb-[0.04em]">
+              <span>
+                precisa ser{" "}
+                <em className="text-gold-gradient font-serif italic pr-2 font-normal">
+                  de elite.
+                </em>
+              </span>
+            </span>
           </h1>
 
-          <p className="animate-fade-up mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg" style={{ animationDelay: "300ms" }}>
-            Da primeira raquetada à formação como professor: uma jornada estruturada,
-            personalizada e conduzida com a autoridade de quem vive o Beach Tennis.
+          {/* Subtítulo Sofisticado */}
+          <p className="reveal mt-8 max-w-[620px] text-base leading-relaxed text-white/75 md:text-lg">
+            Da iniciação descompromissada à capacitação completa de treinadores:
+            uma jornada esportiva estruturada com acompanhamento técnico contínuo
+            e inteligência de dados na quadra de areia.
           </p>
 
-          <ul className="animate-fade-up mt-8 grid gap-3 sm:grid-cols-2" style={{ animationDelay: "400ms" }}>
-            {bullets.map(({ icon: Icon, text }) => (
-              <li key={text} className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-smooth hover:bg-primary/20">
-                  <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
-                </span>
-                <span className="text-sm font-medium text-foreground/85 leading-snug">{text}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="animate-fade-up mt-10 flex flex-wrap items-center gap-4" style={{ animationDelay: "500ms" }}>
+          {/* CTAs Magnéticos */}
+          <div className="reveal mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-7">
             <a
-              href={waLink()}
+              href={waLink("Olá, Marco! Gostaria de agendar uma aula experimental e conhecer os horários da equipe.")}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-4 text-sm font-semibold uppercase tracking-wider text-whatsapp-foreground shadow-elegant transition-smooth hover:scale-105 hover:bg-whatsapp/90 sm:text-base"
+              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-accent px-8 py-4.5 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-glow transition-all duration-500 hover:scale-[1.03] hover:bg-white"
             >
-              <MessageCircle className="h-5 w-5 transition-transform group-hover:rotate-12" />
-              Falar no WhatsApp
+              <MessageCircle className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
+              <span>Agendar Avaliação</span>
             </a>
+
             <a
               href="#servicos"
-              className="text-sm font-semibold text-primary underline-offset-4 hover:underline transition-smooth hover:translate-x-1"
+              className="eyebrow inline-flex items-center gap-2.5 py-3 text-[11px] text-white/80 tracking-[0.22em] transition-colors hover:text-accent group"
             >
-              Ver áreas de atuação →
+              <span>Conhecer os programas</span>
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 text-accent" />
             </a>
           </div>
         </div>
+      </div>
 
-        <div className="relative animate-fade-in" style={{ animationDelay: "600ms" }}>
-          <div className="absolute -inset-6 rounded-3xl bg-gradient-primary opacity-20 blur-3xl animate-pulse" />
-          <div className="relative overflow-hidden rounded-3xl border border-border/50 shadow-elegant transition-smooth hover:shadow-glow">
-            <img
-              src={heroImage}
-              alt="Equipe Marco Roza Beach Tennis com alunos em quadra"
-              width={1600}
-              height={1200}
-              className="h-full w-full object-cover transition-smooth hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+      {/* Ticker de Autoridade no Rodapé do Hero */}
+      <div className="absolute inset-x-0 bottom-0 z-20 hidden border-t border-white/10 bg-[#090c16]/80 backdrop-blur-md md:block">
+        <div className="mx-auto grid max-w-7xl grid-cols-3 px-8">
+          <div className="py-5 text-center">
+            <p className="eyebrow text-[10px] text-accent/90">10+ Anos de Trajetória</p>
+            <p className="mt-1 text-xs text-white/60">Autoridade e respeito no esporte</p>
           </div>
-          <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-border bg-background/95 p-4 shadow-card-soft backdrop-blur transition-smooth hover:scale-110 md:block">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/15 text-accent">
-                <Trophy className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="font-display text-lg font-bold leading-none text-primary">+10 anos</p>
-                <p className="text-xs text-muted-foreground">de experiência em quadra</p>
-              </div>
-            </div>
+          <div className="border-l border-white/10 py-5 text-center">
+            <p className="eyebrow text-[10px] text-accent/90">Gestão com BI & Dados</p>
+            <p className="mt-1 text-xs text-white/60">Evolução técnica mensurável</p>
+          </div>
+          <div className="border-l border-white/10 py-5 text-center">
+            <p className="eyebrow text-[10px] text-accent/90">Iniciação a Professores</p>
+            <p className="mt-1 text-xs text-white/60">Formação completa em todas as fases</p>
           </div>
         </div>
+      </div>
+
+      {/* Indicador de Rolagem Lateral */}
+      <div
+        className="absolute bottom-24 right-8 z-20 hidden flex-col items-center gap-3 md:flex"
+        aria-hidden="true"
+      >
+        <div className="relative h-14 w-px overflow-hidden bg-white/20">
+          <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-accent animate-scroll-dot" />
+        </div>
+        <span className="eyebrow text-[8px] text-white/50">Role</span>
       </div>
     </section>
   );

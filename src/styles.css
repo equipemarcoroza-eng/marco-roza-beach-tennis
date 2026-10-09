@@ -33,71 +33,67 @@
   --color-whatsapp-foreground: var(--whatsapp-foreground);
 
   --font-display: "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-eyebrow: "Montserrat", sans-serif;
 
-  --shadow-elegant: 0 25px 60px -20px color-mix(in oklab, var(--primary) 35%, transparent);
-  --shadow-card: 0 10px 30px -12px color-mix(in oklab, var(--primary) 18%, transparent);
-  --shadow-glow: 0 0 80px -10px color-mix(in oklab, var(--accent) 40%, transparent);
+  --shadow-elegant: 0 25px 60px -20px rgba(0, 0, 0, 0.7);
+  --shadow-card: 0 10px 30px -12px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 60px -10px rgba(230, 166, 60, 0.35);
 
   --gradient-hero: radial-gradient(
       ellipse at top right,
-      color-mix(in oklab, var(--accent) 22%, transparent),
-      transparent 60%
+      rgba(230, 166, 60, 0.15),
+      transparent 65%
     ),
     radial-gradient(
       ellipse at bottom left,
-      color-mix(in oklab, var(--primary) 18%, transparent),
-      transparent 55%
+      rgba(26, 38, 92, 0.35),
+      transparent 60%
     );
-  --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
-  --gradient-dark: linear-gradient(135deg, var(--primary) 0%, oklch(0.15 0.1 270) 100%);
+  --gradient-primary: linear-gradient(135deg, #1b2760, #d9992f);
+  --gradient-dark: linear-gradient(135deg, #090c15 0%, #11172a 100%);
+  --gradient-gold: linear-gradient(135deg, #f7d287 0%, #d4982f 50%, #ae7518 100%);
 
-  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {
   --radius: 0.75rem;
 
-  /* Off-white quente */
-  --background: oklch(0.985 0.005 80);
-  --foreground: oklch(0.18 0.08 270);
+  /* Canvas Escuro Cinematográfico / Navy Noturno */
+  --background: #090c16;
+  --foreground: #f4f3ef;
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.08 270);
+  --card: #101524;
+  --card-foreground: #f4f3ef;
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.08 270);
+  --popover: #101524;
+  --popover-foreground: #f4f3ef;
 
-  /* Navy #1f2a73 */
-  --primary: oklch(0.32 0.14 270);
-  --primary-foreground: oklch(0.985 0.005 80);
+  /* Navy nobre e profundo */
+  --primary: #1d2b6b;
+  --primary-foreground: #fcfbfa;
 
-  --secondary: oklch(0.95 0.01 270);
-  --secondary-foreground: oklch(0.22 0.1 270);
+  --secondary: #141a2e;
+  --secondary-foreground: #e4e2db;
 
-  --muted: oklch(0.94 0.008 270);
-  --muted-foreground: oklch(0.45 0.04 270);
+  --muted: #182038;
+  --muted-foreground: #9ba1b4;
 
-  /* Coral/Vermelho #e63946 */
-  --accent: oklch(0.62 0.22 25);
-  --accent-foreground: oklch(0.985 0.005 80);
+  /* Âmbar / Ouro Solar refinado do Beach Tennis */
+  --accent: #e5a73b;
+  --accent-foreground: #090c16;
 
-  --destructive: oklch(0.58 0.24 25);
-  --destructive-foreground: oklch(0.985 0.005 80);
+  --destructive: #e63946;
+  --destructive-foreground: #ffffff;
 
-  --border: oklch(0.88 0.02 270);
-  --input: oklch(0.92 0.015 270);
-  --ring: oklch(0.32 0.14 270);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #e5a73b;
 
-  /* WhatsApp green oficial #25D366 */
-  --whatsapp: oklch(0.74 0.19 148);
-  --whatsapp-foreground: oklch(0.99 0 0);
-
-  --chart-1: oklch(0.32 0.14 270);
-  --chart-2: oklch(0.62 0.22 25);
-  --chart-3: oklch(0.62 0.16 145);
-  --chart-4: oklch(0.7 0.14 60);
-  --chart-5: oklch(0.5 0.15 230);
+  /* WhatsApp oficial */
+  --whatsapp: #25d366;
+  --whatsapp-foreground: #ffffff;
 }
 
 @layer base {
@@ -107,6 +103,7 @@
 
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
@@ -114,6 +111,7 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   h1,
@@ -125,12 +123,39 @@
   }
 }
 
+/* Textura Analógica Subtil (Grain) */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.eyebrow {
+  font-family: var(--font-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.725rem;
+}
+
+.text-gold-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
   }
   .font-sans {
     font-family: var(--font-sans);
+  }
+  .font-eyebrow {
+    font-family: var(--font-eyebrow);
   }
   .bg-gradient-hero {
     background-image: var(--gradient-hero);
@@ -150,9 +175,6 @@
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
-  .shadow-glow-accent {
-    box-shadow: 0 0 40px -5px color-mix(in oklab, var(--accent) 50%, transparent);
-  }
   .transition-smooth {
     transition: var(--transition-smooth);
   }
@@ -160,65 +182,81 @@
 
 @layer base {
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--background);
+    background: #090c16;
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 10px;
+    background: #1e2642;
+    border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--muted-foreground);
+    background: #e5a73b;
   }
 }
 
-@keyframes fade-up {
+@keyframes spinSlow {
   from {
-    opacity: 0;
-    transform: translateY(24px);
+    transform: rotate(0deg);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: rotate(360deg);
   }
 }
-@keyframes fade-in {
-  from {
+
+@keyframes scrollDot {
+  0% {
+    transform: translate(-50%, 0);
     opacity: 0;
   }
-  to {
+  40% {
     opacity: 1;
   }
-}
-@keyframes float {
-  0%,
+  80% {
+    transform: translate(-50%, 28px);
+    opacity: 0;
+  }
   100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
+    opacity: 0;
   }
 }
 
-.animate-fade-up {
-  animation: fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+@keyframes marqueeSlow {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
-.animate-fade-in {
-  animation: fade-in 1s ease-out both;
+
+.animate-spin-slow {
+  animation: spinSlow 22s linear infinite;
 }
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeSlow 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-scroll-dot {
+  animation: scrollDot 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(32px);
   transition:
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);

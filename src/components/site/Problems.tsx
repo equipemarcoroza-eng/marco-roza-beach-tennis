@@ -1,71 +1,79 @@
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, CheckCircle2 } from "lucide-react";
 
-const pains = [
+const challenges = [
   {
-    title: "Quer aprender a jogar Beach Tennis",
-    text: "Mas não sabe por onde começar nem encontra um método estruturado para evoluir com segurança.",
+    title: "Deseja começar mas tem receio de errar",
+    text: "Sem um método seguro de iniciação, muitos desanimam nas primeiras tentativas na areia com cansaço excessivo e golpes incorretos.",
   },
   {
-    title: "Precisa de capacitação para se tornar professor",
-    text: "Falta uma formação completa que una técnica, metodologia e gestão de aulas no dia a dia.",
+    title: "Joga há meses mas sente que estagnou",
+    text: "Frequenta jogos livres toda semana, mas não vê melhora no saque, na leitura da bola ou na agilidade junto à rede.",
   },
   {
-    title: "É professor e busca especialização",
-    text: "Sente que estagnou e quer atualizar repertório técnico, tático e didático para destacar-se.",
+    title: "Busca se tornar professor com credibilidade",
+    text: "Jogar bem não é ensinar bem. Falta capacitação técnica, didática e estruturação pedagógica para conduzir turmas lucrativas.",
   },
   {
-    title: "Quer organizar ou arbitrar torneios",
-    text: "Não tem clareza sobre regras, fluxo de competição ou estrutura para entregar eventos profissionais.",
+    title: "Quer organizar ou arbitrar competições",
+    text: "Sem conhecimento de chaveamentos, regras oficiais e gestão de tempo, o evento perde prestígio e atrai conflitos.",
   },
   {
-    title: "Pais que buscam esporte para os filhos",
-    text: "Querem um ambiente seguro, divertido e com desenvolvimento técnico real para crianças e jovens.",
+    title: "Pais procurando esporte para os filhos",
+    text: "Buscam um ambiente seguro, com coordenação motora, foco e disciplina saudável longe das telas.",
   },
   {
-    title: "Sente falta de acompanhamento real",
-    text: "Aulas avulsas sem evolução medida, sem plano e sem alguém olhando o seu jogo de perto.",
+    title: "Cansaço de aulas sem acompanhamento",
+    text: "Turmas cheias e sem atenção individual, onde o professor apenas joga bolas sem corrigir biomecânica nem medir avanços.",
   },
 ];
 
 export function Problems() {
   return (
-    <section className="relative overflow-hidden bg-background py-24 md:py-32">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl max-h-[600px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
-      
-      <div className="mx-auto max-w-7xl px-5 md:px-8 relative">
+    <section className="relative overflow-hidden bg-[#090c16] py-24 md:py-36">
+      <div className="mx-auto max-w-7xl px-5 md:px-8 relative z-10">
+        
+        {/* Cabeçalho */}
         <div className="reveal mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-            O Desafio
+          <span className="eyebrow text-accent font-semibold">
+            Diagnóstico Inicial
           </span>
-          <h2 className="mt-4 font-display text-3xl font-bold text-primary md:text-5xl">
-            Sente que falta algo na sua jornada?
+          <h2 className="mt-4 font-display text-[36px] leading-[1.12] text-white sm:text-5xl lg:text-[56px]">
+            Sente que falta método na sua{" "}
+            <em className="text-gold-gradient font-serif italic pr-2 font-normal">
+              evolução?
+            </em>
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-lg mx-auto">
-            Identificamos os maiores obstáculos de quem vive o Beach Tennis e estruturamos 
-            metodologias reais para superá-los.
+          <p className="mt-4 text-sm leading-relaxed text-white/65 md:text-base">
+            Mapeamos os maiores gargalos de atletas e entusiastas na areia para construir uma metodologia que realmente gera resultados.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {pains.map((p, i) => (
+        {/* Grade de Desafios */}
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {challenges.map((c, idx) => (
             <div
-              key={p.title}
-              className={`reveal group relative rounded-[2rem] border border-border bg-card p-8 transition-all duration-500 
-                hover:border-accent/30 hover:shadow-elegant hover:-translate-y-2
-                ${i % 2 === 0 ? "lg:mt-8" : "lg:mb-8"}`}
-              style={{ transitionDelay: `${i * 60}ms` }}
+              key={c.title}
+              className="reveal group relative rounded-3xl border border-white/10 bg-[#101526]/80 p-8 backdrop-blur-sm transition-all duration-500 hover:border-accent/50 hover:bg-[#151c33] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+              style={{ transitionDelay: `${idx * 40}ms` }}
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/5 text-accent transition-all duration-500 group-hover:bg-accent group-hover:text-accent-foreground group-hover:rotate-[10deg] group-hover:shadow-glow-accent">
-                <AlertCircle className="h-6 w-6" strokeWidth={1.5} />
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-accent transition-all duration-500 group-hover:scale-110 group-hover:bg-accent/15 group-hover:border-accent/40">
+                <AlertCircle className="h-5 w-5" strokeWidth={1.5} />
               </div>
-              <h3 className="mt-6 font-display text-2xl font-bold tracking-tight text-primary">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground group-hover:text-foreground/80 transition-colors">{p.text}</p>
-              
-              {/* Decorative indicator */}
-              <div className="absolute top-6 right-6 h-1 w-8 rounded-full bg-border transition-all duration-500 group-hover:w-12 group-hover:bg-accent/40" />
+
+              <h3 className="mt-6 font-display text-xl font-bold tracking-tight text-white transition-colors group-hover:text-accent">
+                {c.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-relaxed text-white/65 transition-colors group-hover:text-white/85">
+                {c.text}
+              </p>
+
+              {/* Linha decorativa no hover */}
+              <div className="mt-6 h-0.5 w-8 rounded-full bg-white/10 transition-all duration-500 group-hover:w-16 group-hover:bg-accent" />
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
